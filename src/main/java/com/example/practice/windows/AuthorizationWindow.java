@@ -14,7 +14,10 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 
-
+/**
+ * @author GOSSIPAUTHORXPM
+ * @version 1.0
+ */
 public class AuthorizationWindow {
 
     @FXML

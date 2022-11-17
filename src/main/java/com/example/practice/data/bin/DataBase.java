@@ -10,8 +10,10 @@ abstract class DataBase {
     String root_name = "root";
     String password = "1488";
 
+    /**
+     * Подключение к базе данных MySQL
+     */
     protected Connection getConnect() {
-//        Получение подключения к базе данных MySQL
         try {
             return DriverManager.getConnection("jdbc:mysql://localhost/airport", root_name, password);
         } catch (SQLException error) {

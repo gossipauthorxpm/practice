@@ -2,6 +2,10 @@ package com.example.practice.data.bin;
 
 import java.util.List;
 
+/**
+ * @author GOSSIPAUTHORXPM
+ * @version 1.0
+ */
 public class Account {
     private int id;
     private String login;
@@ -37,6 +41,12 @@ public class Account {
         this.role = role;
     }
 
+    /**
+     * @param accounts   принимает список List с Object = Account
+     * @param hash_login принимает строку в md5 hash
+     * Возвращает index элемента логина из списка аккаутов, принятых в базе данных.
+     * Если аккаунт не найден, возвращает -1
+     */
     public static int getListIdAccount(List<Account> accounts, String hash_login) {
         for (int item = 0; item < accounts.size(); item++) {
             if (hash_login.equals(accounts.get(item).getLogin())) {

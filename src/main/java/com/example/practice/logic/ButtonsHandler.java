@@ -7,8 +7,11 @@ import com.example.practice.logic.exceptions.ButtonsExceptions;
 import javafx.scene.control.TextField;
 
 public class ButtonsHandler {
+    /**
+     * @param login_field    принимает объект поля ввода логина
+     * @param password_field принимает объект поля ввода пароля
+     */
     public static List<String> getDataFromWidgetsAuthorization(TextField login_field, TextField password_field) {
-//        Получение данных из окна авторизации в полях ввода
         List<String> list_data = new ArrayList<>();
         list_data.add(login_field.getText());
         list_data.add(password_field.getText());

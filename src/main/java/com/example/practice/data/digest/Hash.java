@@ -5,8 +5,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Hash {
+    /**
+     * @param hash принимает строку хеша в md5
+     * @param data принимает строку данных для преобразования и сравнения в md5
+     */
     public static Boolean verifyHash(String hash, String data) {
-//      Сравнение кеша с переданной переменной
         try {
             MessageDigest md5_hash = MessageDigest.getInstance("MD5");
             byte[] message_digest = md5_hash.digest(data.getBytes());
@@ -24,6 +27,9 @@ public class Hash {
 
     }
 
+    /**
+     * @param data принимает строку данных для преобразования и возврата данных в md5
+     */
     public static String getHash(String data) {
 //      Получение хеша из переменной
         try {

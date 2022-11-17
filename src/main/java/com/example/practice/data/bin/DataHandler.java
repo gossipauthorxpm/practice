@@ -7,8 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler extends DataBase {
+    /**
+     * Получаем все данные из таблицы accounts.
+     *
+     * @author GOSSIPAUTHORXPM
+     */
     public List<Account> getAllDataTableAccount() throws SQLException {
-//      Получаем все данные из таблицы accounts
+//
         List<Account> list = new ArrayList<>();
         String request = "SELECT * FROM accounts;";
         Connection database = getConnect();
@@ -20,7 +25,7 @@ public class DataHandler extends DataBase {
                     result.getString(3),
                     result.getString(4),
                     result.getString(5)
-                    );
+            );
             list.add(account);
         }
         return list;
