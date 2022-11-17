@@ -7,6 +7,8 @@ module com.example.practice {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.practice to javafx.fxml;
-    exports com.example.practice;
+    exports com.example.practice.logic;
+    exports com.example.practice.windows;
+    opens com.example.practice.windows to javafx.fxml;
+    opens com.example.practice.logic to javafx.fxml;
 }
