@@ -6,7 +6,11 @@ module com.example.practice {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
+    exports com.example.practice.data.digest;
+    exports com.example.practice.logic.exceptions;
+    exports com.example.practice.data.bin;
     exports com.example.practice.logic;
     exports com.example.practice.windows;
     opens com.example.practice.windows to javafx.fxml;
