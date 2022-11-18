@@ -14,6 +14,7 @@ public class StartWindow extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(StartWindow.class.getResource("authorization_window.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 950, 665);
         stage.setTitle("Practice");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

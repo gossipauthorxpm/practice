@@ -4,19 +4,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="950.0" style="-fx-background-color: #150873;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practice.windows.AuthorizationWindow">
-   <children>
-      <AnchorPane layoutX="142.0" layoutY="117.0" prefHeight="432.0" prefWidth="667.0" style="-fx-background-color: white;">
-         <children>
-            <Label layoutX="228.0" layoutY="14.0" prefHeight="43.0" prefWidth="212.0" text="Авторизация" textAlignment="CENTER" textOverrun="CLIP">
-               <font>
-                  <Font name="Arial Bold" size="30.0" />
-               </font>
-            </Label>
-            <TextField fx:id="login_field" layoutX="158.0" layoutY="164.0" prefHeight="43.0" prefWidth="351.0" promptText="Логин" />
-            <PasswordField fx:id="password_field" layoutX="158.0" layoutY="216.0" prefHeight="43.0" prefWidth="351.0" promptText="Пароль" />
-            <Button fx:id="authorization_button" layoutX="205.0" layoutY="285.0" mnemonicParsing="false" onAction="#clickButtonAuthorize" prefHeight="53.0" prefWidth="257.0" text="Вход" />
-         </children>
-      </AnchorPane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0"
+            prefWidth="950.0" style="-fx-background-color: #150873;" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practice.windows.AuthorizationWindow">
+   <AnchorPane layoutX="142.0" layoutY="117.0" prefHeight="432.0" prefWidth="667.0"
+               style="-fx-background-color: white;">
+      <Label layoutX="228.0" layoutY="14.0" prefHeight="43.0" prefWidth="212.0" text="Авторизация"
+             textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Bold" size="30.0"/>
+         </font>
+      </Label>
+      <TextField fx:id="login_field" layoutX="158.0" layoutY="164.0" prefHeight="43.0" prefWidth="351.0"
+                 promptText="Логин"/>
+      <PasswordField fx:id="password_field" layoutX="158.0" layoutY="216.0" prefHeight="43.0" prefWidth="351.0"
+                     promptText="Пароль"/>
+      <Button fx:id="authorization_button" layoutX="205.0" layoutY="285.0" mnemonicParsing="false"
+              onAction="#clickButtonAuthorize" prefHeight="53.0" prefWidth="257.0" text="Вход"/>
+   </AnchorPane>
 </AnchorPane>

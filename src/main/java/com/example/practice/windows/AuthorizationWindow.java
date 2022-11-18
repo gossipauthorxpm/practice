@@ -55,18 +55,22 @@ public class AuthorizationWindow {
         String enter_login = this.login_field.getText().trim();
         String enter_password = this.password_field.getText().trim();
 
-        String hash_enter_login = Hash.getHash(enter_login);
-        String hash_enter_password = Hash.getHash(enter_password);
 //      Получаем id из списка аккаунта если он присутсвует в системе
-        int list_id_account = Account.getListIdAccount(data_accounts, hash_enter_login);
+        int list_id_account = Account.getListIdAccount(data_accounts, enter_login);
         if (list_id_account == -1) {
             new Alert(Alert.AlertType.INFORMATION, "Аккаунт не существует!").show();
             return;
         }
-//      Если аккаун существует, проверяем к нему пароль
+        //      Если аккаун существует, проверяем к нему пароль
+        String hash_enter_password = data_accounts.get(list_id_account).getPassword();
         if (!Hash.verifyHash(hash_enter_password, enter_password)) {
             new Alert(Alert.AlertType.INFORMATION, "Пароль введен не верно!\nПовторите попытку!").show();
             return;
         }
+        if(data_accounts.get(list_id_account).getRole().equals("admin")){
+            WindowHandler.startNewWindow("admin_panel.fxml", "Admin Panel", 600, 400);
+        }
+
     }
+
 }
