@@ -11,11 +11,11 @@ import javafx.collections.ObservableArray;
  * данные для отправки в таблицу панели админа*/
 public class AccountTables extends Account{
 
-    private SimpleIntegerProperty simple_id = new SimpleIntegerProperty(this.getId());
-    private SimpleStringProperty simple_login = new SimpleStringProperty(this.getLogin());
-    private SimpleStringProperty simple_password = new SimpleStringProperty(this.getPassword());
-    private SimpleStringProperty simple_status = new SimpleStringProperty(this.getStatus());
-    private SimpleStringProperty simple_role = new SimpleStringProperty(this.getRole());
+    private final SimpleIntegerProperty simple_id = new SimpleIntegerProperty(this.getId());
+    private final SimpleStringProperty simple_login = new SimpleStringProperty(this.getLogin());
+    private final SimpleStringProperty simple_password = new SimpleStringProperty(this.getPassword());
+    private final SimpleStringProperty simple_status = new SimpleStringProperty(this.getStatus());
+    private final SimpleStringProperty simple_role = new SimpleStringProperty(this.getRole());
 
     public AccountTables(int id, String login, String password, String status, String role) {
         super(id, login, password, status, role);

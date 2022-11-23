@@ -7,7 +7,9 @@ module com.example.practice {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires org.testng;
 
+    exports com.example.practice.test;
     exports com.example.practice.data.digest;
     exports com.example.practice.logic.exceptions;
     exports com.example.practice.data.bin;

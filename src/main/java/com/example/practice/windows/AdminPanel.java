@@ -286,5 +286,4 @@ public class AdminPanel {
         throw new UserException("Не найден аккаунт с данным id.\nВведите корректный id");
     }
 
-
 }
