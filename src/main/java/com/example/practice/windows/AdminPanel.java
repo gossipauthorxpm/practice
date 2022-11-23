@@ -12,17 +12,29 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import org.kordamp.bootstrapfx.scene.layout.Panel;
 
 import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
+
+/**
+ * The type Admin panel.
+ *
+ * @author GOSSIPAUTHORXPM
+ */
 public class AdminPanel {
+    /**
+     * The Account select.
+     */
     Account account_select;
 
+    /**
+     * Initialize.
+     *
+     * @throws SQLException the sql exception
+     */
     @FXML
     public void initialize() throws SQLException {
 //        настройка таблицы с данными
@@ -32,10 +44,10 @@ public class AdminPanel {
 //        создание столбцов
         this.createFabricToNameTables();
         this.accounts_table.addEventFilter(MouseEvent.MOUSE_CLICKED, click_event);
-        this.text_area_helper.setText(this.getTextToHelpNote());
+        this.text_area_helper.setText(this.getTextToHelpAccounts());
     }
 
-    private String getTextToHelpNote() {
+    private String getTextToHelpAccounts() {
         try (FileInputStream reader = new FileInputStream("src/main/java/com/example/practice/data/digest/data/text_help_admin_panel.txt")) {
             String text = "";
             byte[] bytes = reader.readAllBytes();
@@ -50,9 +62,7 @@ public class AdminPanel {
 
     }
 
-    /**
-     * Присваивание типов для таблицы и передача их в саму таблицу
-     */
+
     private void createFabricToNameTables() {
         this.id_column.setCellValueFactory(new PropertyValueFactory<>("simple_id"));
         this.login.setCellValueFactory(new PropertyValueFactory<>("simple_login"));
@@ -67,7 +77,10 @@ public class AdminPanel {
         this.accounts_table.getColumns().add(this.role);
     }
 
-    //    Событие клика по таблице
+    /**
+     * The Click event.
+     */
+//    Событие клика по таблице
     EventHandler<MouseEvent> click_event = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
@@ -77,13 +90,7 @@ public class AdminPanel {
             }
             AccountTables account = account_tables.get(0);
 
-            account_select = new AccountTables(
-                    account.getId(),
-                    account.getLogin(),
-                    account.getPassword(),
-                    account.getStatus(),
-                    account.getRole()
-            );
+            account_select = new AccountTables(account.getId(), account.getLogin(), account.getPassword(), account.getStatus(), account.getRole());
 
             status_field.setText(account.getStatus());
             id_field.setText(Integer.toString(account.getId()));
@@ -117,6 +124,10 @@ public class AdminPanel {
     private Button delete_accounts;
     @FXML
     private TextArea text_area_helper;
+
+    /**
+     * Click delete account.
+     */
     @FXML
     protected void clickDeleteAccount() {
         DataHandler database = new DataHandler();
@@ -137,9 +148,6 @@ public class AdminPanel {
 
     }
 
-    /**
-     * Проверка на заполение форм данными
-     */
     private void checkEmptyFields(String id, String login, String password, String status, String role) throws UserException {
         if (id.trim().equals("")) {
             throw new UserException("Пустой id");
@@ -173,9 +181,6 @@ public class AdminPanel {
         }
     }
 
-    /**
-     * Проверка наличия вводимых id и login в базе данных
-     */
     private void checkRepeatLoginAndId(String id, String login, List<Account> accounts) throws UserException {
         for (Account account : accounts) {
             String account_login = account.getLogin();
@@ -189,9 +194,6 @@ public class AdminPanel {
         }
     }
 
-    /**
-     * Проверка длинн строчек полей ввода для корректного запроса в бд и отлова ошибок
-     */
     private void checkLongWordsFields(String login, String password, String status, String role) throws UserException {
         if (login.length() > StaticData.FATAL_LOGIN_LENGTH) {
             throw new UserException("Превышена длинна поля login");
@@ -207,6 +209,11 @@ public class AdminPanel {
         }
     }
 
+    /**
+     * Click create account.
+     *
+     * @throws SQLException the sql exception
+     */
     @FXML
     protected void clickCreateAccount() throws SQLException {
         DataHandler database = new DataHandler();
@@ -248,6 +255,9 @@ public class AdminPanel {
         accounts_table.setItems(accounts);
     }
 
+    /**
+     * Click back button.
+     */
     @FXML
     protected void clickBackButton() {
         Stage admin_window = (Stage) delete_accounts.getScene().getWindow();
@@ -258,6 +268,11 @@ public class AdminPanel {
         admin_window.close();
     }
 
+    /**
+     * Update account.
+     *
+     * @throws SQLException the sql exception
+     */
     @FXML
     protected void updateAccount() throws SQLException {
 //    можно изменить роль, статус
@@ -293,9 +308,6 @@ public class AdminPanel {
         accounts_table.setItems(accounts);
     }
 
-    /**
-     * Проверка принадлежности логина к аккауту к его индентификатору
-     */
     private void checkValidIdToLogin(List<Account> accounts, String id, String login) throws UserException {
         for (Account account : accounts) {
             if (account.getId() == Integer.parseInt(id)) {
@@ -309,11 +321,17 @@ public class AdminPanel {
         throw new UserException("Не найден аккаунт с данным id.\nВведите корректный id");
     }
 
+    /**
+     * Show info.
+     */
     @FXML
     protected void showInfo() {
         this.panel.setVisible(true);
     }
 
+    /**
+     * Close info.
+     */
     @FXML
     protected void closeInfo() {
         this.panel.setVisible(false);
