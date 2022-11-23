@@ -11,8 +11,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.kordamp.bootstrapfx.scene.layout.Panel;
 
+import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,6 +32,22 @@ public class AdminPanel {
 //        создание столбцов
         this.createFabricToNameTables();
         this.accounts_table.addEventFilter(MouseEvent.MOUSE_CLICKED, click_event);
+        this.text_area_helper.setText(this.getTextToHelpNote());
+    }
+
+    private String getTextToHelpNote() {
+        try (FileInputStream reader = new FileInputStream("src/main/java/com/example/practice/data/digest/data/text_help_admin_panel.txt")) {
+            String text = "";
+            byte[] bytes = reader.readAllBytes();
+            for (byte item : bytes) {
+                text += (char) item;
+            }
+            return text;
+        } catch (IOException error) {
+            System.out.println(error.toString());
+            return null;
+        }
+
     }
 
     /**
@@ -73,6 +93,8 @@ public class AdminPanel {
         }
     };
     @FXML
+    private AnchorPane panel;
+    @FXML
     private TableView<AccountTables> accounts_table;
     //    определение столбцов таблицы
     private final TableColumn<AccountTables, Integer> id_column = new TableColumn<>("Id");
@@ -93,7 +115,8 @@ public class AdminPanel {
 
     @FXML
     private Button delete_accounts;
-
+    @FXML
+    private TextArea text_area_helper;
     @FXML
     protected void clickDeleteAccount() {
         DataHandler database = new DataHandler();
@@ -286,4 +309,13 @@ public class AdminPanel {
         throw new UserException("Не найден аккаунт с данным id.\nВведите корректный id");
     }
 
+    @FXML
+    protected void showInfo() {
+        this.panel.setVisible(true);
+    }
+
+    @FXML
+    protected void closeInfo() {
+        this.panel.setVisible(false);
+    }
 }

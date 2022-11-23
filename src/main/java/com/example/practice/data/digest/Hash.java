@@ -3,6 +3,7 @@ package com.example.practice.data.digest;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Savepoint;
 
 public class Hash {
     /**
@@ -15,7 +16,6 @@ public class Hash {
             byte[] message_digest = md5_hash.digest(data.getBytes());
             BigInteger pre_hash = new BigInteger(1, message_digest);
             String hash_data = pre_hash.toString(16);
-
             while (hash_data.length() < 32) {
                 hash_data = "0" + hash_data;
             }

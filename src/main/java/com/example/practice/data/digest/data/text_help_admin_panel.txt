@@ -1,0 +1,14 @@
+This panel is an airport data management system.
+
+Account Management Selected!
+
+The login field has a maximum length of 32 characters. Not subject to change. Unique field.
+Status field - maximum length 8 characters. Changes are possible.
+The role field is a maximum length of 5 characters. Changes are possible.
+The id field is a numeric value. Not subject to change. Unique field.
+The password field is 32 characters in the md5 hash sequence. Not subject to change.
+
+Functions:
+1. Deleting the selected account
+2. Change the selected account
+3. Adding a new account
