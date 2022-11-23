@@ -1,5 +1,6 @@
 package com.example.practice.windows;
 
+import com.example.practice.data.bin.StaticData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

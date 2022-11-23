@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * @author GOSSIPAUTHORXPM
  * @version 1.0
+ * Класс служит для хранения данных из базы данных, таблица Accounts
  */
 public class Account {
     private int id;

@@ -2,13 +2,21 @@ package com.example.practice.windows;
 
 import com.example.practice.data.bin.Account;
 import com.example.practice.data.bin.DataHandler;
+import com.example.practice.data.bin.StaticData;
 import com.example.practice.data.digest.Hash;
 import com.example.practice.logic.ButtonsHandler;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -19,6 +27,10 @@ import java.util.List;
  * @version 1.0
  */
 public class AuthorizationWindow {
+    @FXML
+    public void initialize() throws InstantiationException {
+
+    }
 
     @FXML
     protected Button authorization_button;
@@ -67,8 +79,14 @@ public class AuthorizationWindow {
             new Alert(Alert.AlertType.INFORMATION, "Пароль введен не верно!\nПовторите попытку!").show();
             return;
         }
-        if(data_accounts.get(list_id_account).getRole().equals("admin")){
+//        запускаем окно админа
+        if (data_accounts.get(list_id_account).getRole().equals("admin")) {
+            Stage stage = (Stage) this.authorization_button.getScene().getWindow();
+//            передача окна в общую память
+            StaticData.setAuthorizationWindow(stage);
+            stage.hide();
             WindowHandler.startNewWindow("admin_panel.fxml", "Admin Panel", 600, 400);
+
         }
 
     }

@@ -4,31 +4,26 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practice.windows.AdminPanel">
-   <AnchorPane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #4388;">
-      <Button layoutX="105.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Accounts" />
-      <Button layoutX="237.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Aiplanes" />
-      <Button layoutX="369.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Airflight" />
-      <Button layoutX="14.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Назад" />
-   </AnchorPane>
-   <AnchorPane layoutX="4.0" layoutY="57.0" prefHeight="343.0" prefWidth="568.0">
-      <Label layoutX="18.0" layoutY="28.0" text="Login" />
-      <Label layoutX="272.0" layoutY="28.0" text="Password" />
-      <Label layoutX="17.0" layoutY="66.0" text="Status" />
-      <Label layoutX="162.0" layoutY="66.0" text="Role" />
-      <Label layoutX="18.0" layoutY="100.0" text="ID" />
-      <TableView layoutX="-7.0" layoutY="128.0" prefHeight="215.0" prefWidth="604.0">
-         <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
-         </columns>
-      </TableView>
-      <TextField layoutX="58.0" layoutY="62.0" prefHeight="25.0" prefWidth="95.0" />
-      <TextField layoutX="333.0" layoutY="24.0" prefHeight="25.0" prefWidth="246.0" />
-      <TextField layoutX="198.0" layoutY="62.0" prefHeight="25.0" prefWidth="95.0" />
-      <TextField layoutX="58.0" layoutY="24.0" prefHeight="25.0" prefWidth="207.0" />
-      <TextField layoutX="58.0" layoutY="96.0" prefHeight="0.0" prefWidth="149.0" />
-      <Button layoutX="333.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Удалить аккаунт" />
-      <Button layoutX="456.0" layoutY="62.0" mnemonicParsing="false" text="Изменить аккаунт" />
-      <Button layoutX="333.0" layoutY="96.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Создать аккаунт" />
-   </AnchorPane>
+    <AnchorPane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #4388;">
+        <Button layoutX="105.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Accounts" />
+        <Button layoutX="237.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Aiplanes" />
+        <Button layoutX="369.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Airflight" />
+        <Button layoutX="14.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Назад" />
+    </AnchorPane>
+    <AnchorPane layoutX="4.0" layoutY="57.0" prefHeight="343.0" prefWidth="568.0">
+        <Label layoutX="18.0" layoutY="28.0" text="Login" />
+        <Label layoutX="272.0" layoutY="28.0" text="Password" />
+        <Label layoutX="17.0" layoutY="66.0" text="Status" />
+        <Label layoutX="162.0" layoutY="66.0" text="Role" />
+        <Label layoutX="18.0" layoutY="100.0" text="ID" />
+       <TableView fx:id="accounts_table" layoutX="-7.0" layoutY="128.0" prefHeight="215.0" prefWidth="604.0" />
+        <TextField fx:id="status_field" id="status_field" layoutX="58.0" layoutY="62.0" prefHeight="25.0" prefWidth="95.0" />
+        <TextField fx:id="password_field" id="password_field" layoutX="333.0" layoutY="24.0" prefHeight="25.0" prefWidth="246.0" />
+        <TextField fx:id="role_field" id="role_field" layoutX="198.0" layoutY="62.0" prefHeight="25.0" prefWidth="95.0" />
+        <TextField fx:id="login_field" id="login_field" layoutX="58.0" layoutY="24.0" prefHeight="25.0" prefWidth="207.0" />
+        <TextField fx:id="id_field" id="id_field" layoutX="58.0" layoutY="96.0" prefHeight="0.0" prefWidth="149.0" />
+        <Button layoutX="333.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Удалить аккаунт" />
+        <Button layoutX="456.0" layoutY="62.0" mnemonicParsing="false" text="Изменить аккаунт" />
+        <Button layoutX="333.0" layoutY="96.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Создать аккаунт" />
+    </AnchorPane>
 </AnchorPane>
