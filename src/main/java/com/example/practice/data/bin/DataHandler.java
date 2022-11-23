@@ -1,10 +1,11 @@
 package com.example.practice.data.bin;
 
+import com.example.practice.data.digest.Hash;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class DataHandler extends DataBase {
      *
      * @author GOSSIPAUTHORXPM
      */
-    public List<Account> getAllDataTableAccount() throws SQLException {
+    public List<Account> getAllAccounts() throws SQLException {
 
         List<Account> list = new ArrayList<>();
         String request = "SELECT * FROM accounts;";
@@ -54,5 +55,31 @@ public class DataHandler extends DataBase {
             list.add(account);
         }
         return list;
+    }
+    /**
+     * Удаление аккаунта из базы данных по его идентификатору*/
+    public void deleteAccount(int id_account) throws SQLException {
+        String request = "DELETE FROM accounts WHERE id=" + Integer.toString(id_account) + ";";
+        Connection database = getConnect();
+        PreparedStatement result = database.prepareStatement(request); result.execute();
+    }
+    /**
+     * Созадет аккаунт с указаными данными в табилице accounts*/
+    public void createAccount(String id_account, String login, String password, String role, String status) throws SQLException{
+        String hash_password = Hash.getHash(password);
+        String request = "INSERT INTO accounts VALUES (" + id_account + ", "
+                                                         + "'"+login+"'" + ", "
+                                                         + "'"+hash_password+"'" + ", "
+                                                         + "'"+status+"'" + ", "
+                                                         + "'"+role+"'" + ");";
+        Connection database = getConnect();
+        PreparedStatement result = database.prepareStatement(request); result.execute();
+
+    }
+    public void updateAccount(String id, String role, String status) throws SQLException {
+        String request = "UPDATE accounts SET status=" + "'" + status + "'" + "," + "role=" + "'" + role + "'" + "WHERE " +
+                "id=" + id + ";";
+        Connection database = getConnect();
+        PreparedStatement result = database.prepareStatement(request); result.execute();
     }
 }

@@ -6,19 +6,12 @@ import com.example.practice.data.bin.StaticData;
 import com.example.practice.data.digest.Hash;
 import com.example.practice.logic.ButtonsHandler;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -62,7 +55,7 @@ public class AuthorizationWindow {
             return;
         }
 //      Получаем список всех аккаунтов
-        List<Account> data_accounts = database.getAllDataTableAccount();
+        List<Account> data_accounts = database.getAllAccounts();
 
         String enter_login = this.login_field.getText().trim();
         String enter_password = this.password_field.getText().trim();
