@@ -148,7 +148,7 @@ public class AdminPanel {
 
     }
 
-    private void checkEmptyFields(String id, String login, String password, String status, String role) throws UserException {
+    protected void checkEmptyFields(String id, String login, String password, String status, String role) throws UserException {
         if (id.trim().equals("")) {
             throw new UserException("Пустой id");
         }
@@ -166,7 +166,7 @@ public class AdminPanel {
         }
     }
 
-    private void checkEmptyFields(String id, String login, String status, String role) throws UserException {
+    protected void checkEmptyFields(String id, String login, String status, String role) throws UserException {
         if (id.trim().equals("")) {
             throw new UserException("Пустой id");
         }
@@ -194,7 +194,7 @@ public class AdminPanel {
         }
     }
 
-    private void checkLongWordsFields(String login, String password, String status, String role) throws UserException {
+    protected void checkLongWordsFields(String login, String password, String status, String role) throws UserException {
         if (login.length() > StaticData.FATAL_LOGIN_LENGTH) {
             throw new UserException("Превышена длинна поля login");
         }

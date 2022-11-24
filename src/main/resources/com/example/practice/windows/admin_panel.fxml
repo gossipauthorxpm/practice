@@ -31,7 +31,7 @@
         <Button layoutX="456.0" layoutY="62.0" mnemonicParsing="false" onAction="#updateAccount" text="Изменить аккаунт" />
         <Button layoutX="333.0" layoutY="96.0" mnemonicParsing="false" onAction="#clickCreateAccount" prefHeight="25.0" prefWidth="108.0" text="Создать аккаунт" />
     </AnchorPane>
-    <AnchorPane fx:id="panel" visible="false" layoutX="19.0" layoutY="62.0" prefHeight="324.0" prefWidth="566.0">
-        <TextArea fx:id="text_area_helper" prefHeight="324.0" prefWidth="566.0"/>
+    <AnchorPane fx:id="panel" layoutX="19.0" layoutY="62.0" prefHeight="324.0" prefWidth="566.0" visible="false">
+        <TextArea fx:id="text_area_helper" prefHeight="324.0" prefWidth="566.0" />
     </AnchorPane>
 </AnchorPane>
